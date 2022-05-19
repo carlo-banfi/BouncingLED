@@ -45,7 +45,7 @@ classica.
   
     ![v_0 = - e \cdot v_0 \quad \quad (4)](https://latex.codecogs.com/png.latex?v_0%20%3D%20-%20e%20%5Ccdot%20v_0%20%5Cquad%20%5Cquad%20%284%29)
   
-  dove ![e = 0.8](https://latex.codecogs.com/png.latex?%5Cinline%20e%20%3D%200.8).
+  dove ![e = 0.85](https://latex.codecogs.com/png.latex?%5Cinline%20e%20%3D%200.85).
 
 
 ## Implementazione
