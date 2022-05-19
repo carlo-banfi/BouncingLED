@@ -17,7 +17,8 @@ Ad intervalli di tempo fissi è calcolata la posizione della pallina ed
 aggiornata la visualizzazione.
 
 L'urto con il terreno virtuale è considerato anelastico con perdita del
-\f$ 15\% \f$ della quantità di moto (coefficiente di restituzione: \f$ e = 85\,\% \f$ ).
+![15\,\%](https://latex.codecogs.com/png.latex?%5Cinline%2015%5C%2C%5C%25) della quantità
+di moto (coefficiente di restituzione: ![e = 85\,\%](https://latex.codecogs.com/png.latex?%5Cinline%20e%20%3D%2085%5C%2C%5C%25) ).
 
 A pallina ferma la simulazione riparte cambiando il colore della stessa.
 
@@ -27,26 +28,24 @@ La simulazione è, per quanto possibile, basata sulle leggi della fisica
 classica.
 
 - Accelerazione di gravità media sulla Terra (costante):
-   \f[
-   g_{n} = 9.80665\,\mathrm {m \cdot s^{-2}} \quad \quad (1)
-   \f]
+
+   ![g_{n} = 9.80665\,\mathrm {m \cdot s^{-2}} \quad \quad (1)](https://latex.codecogs.com/png.latex?g_%7Bn%7D%20%3D%209.80665%5C%2C%5Cmathrm%20%7Bm%20%5Ccdot%20s%5E%7B-2%7D%7D%20%5Cquad%20%5Cquad%20%281%29)
 
 - Formule del moto uniformemente accelerato:
-    \f[
-    v = v_{0} + a \cdot t \quad \quad (2)
-    \f]
-    \f[
-    s = v_{0} \cdot t + \frac{1}{2} \cdot a \cdot t^2 \quad \quad (3)
-    \f]
-  dove \f$ a = g_{n} \f$ .
+
+   ![g_{n} = 9.80665\,\mathrm {m \cdot s^{-2}} \quad \quad (1)](https://latex.codecogs.com/png.latex?v%20%3D%20v_%7B0%7D%20&plus;%20a%20%5Ccdot%20t%20%5Cquad%20%5Cquad%20%282%29)
+
+   ![s = v_{0} \cdot t + \frac{1}{2} \cdot a \cdot t^2 \quad \quad (3)](https://latex.codecogs.com/png.latex?s%20%3D%20v_%7B0%7D%20%5Ccdot%20t%20&plus;%20%5Cfrac%7B1%7D%7B2%7D%20%5Ccdot%20a%20%5Ccdot%20t%5E2%20%5Cquad%20%5Cquad%20%283%29)
+   
+  dove ![a = g_{n}](https://latex.codecogs.com/png.latex?%5Cinline%20a%20%3D%20g_%7Bn%7D).
 
 - In caso di urto, supposto perpendicolare, la velocità è invertita
   –diventando negativa– e moltiplicata per il *coefficiente di restituzione*
   dell'urto anelastico:
-    \f[
-    v_0 = - e \cdot v_0 \quad \quad (4)
-    \f]
-  dove \f$ e = 0.8 \f$ .
+  
+    ![v_0 = - e \cdot v_0 \quad \quad (4)](https://latex.codecogs.com/png.latex?v_0%20%3D%20-%20e%20%5Ccdot%20v_0%20%5Cquad%20%5Cquad%20%284%29)
+  
+  dove ![e = 0.8](https://latex.codecogs.com/png.latex?%5Cinline%20e%20%3D%200.8).
 
 
 ## Implementazione
@@ -62,12 +61,12 @@ Il sistema è composto dai seguenti componenti:
 3. **Alimentatore USB** 5V, &ge;1A.
 4. **Cavo USB** di alimentazione per Arduino.
 
-La pallina è simulata su una striscia a LED tipo **WS2812B** di \f$ 1\,\mathrm{m}
-\times 60\,\mathrm{LEDs} \f$ .
+La pallina è simulata su una striscia a LED tipo **WS2812B** di ![1\,\mathrm{m}
+\times 60\,\mathrm{LEDs}](https://latex.codecogs.com/png.latex?%5Cinline%201%5C%2C%5Cmathrm%7Bm%7D%20%5Ctimes%2060%5C%2C%5Cmathrm%7BLEDs%7D).
 
-Il segnale di controllo della striscia a LED è connesso al pin \b `D6` di Arduino.
+Il segnale di controllo della striscia a LED è connesso al pin **`D6`** di Arduino.
 
-La frequenza di rinfresco del display è impostata a \f$ 50\,\mathrm{Hz} \f$ .
+La frequenza di rinfresco del display è impostata a ![50\,\mathrm{Hz}](https://latex.codecogs.com/png.latex?%5Cinline%2050%5C%2C%5Cmathrm%7BHz%7D).
 
 
 ### Software
@@ -82,15 +81,15 @@ La procedura di inizializzazione è composta dalle seguenti fasi:
 - Inizializzazione della libreria grafica, con conseguente spegnimento di
     tutti i LEDs.
 
-- Inizializzazione del timer periodico a \f$ 50\,\mathrm {Hz} \f$ in modo da
+- Inizializzazione del timer periodico a ![50\,\mathrm{Hz}](https://latex.codecogs.com/png.latex?%5Cinline%2050%5C%2C%5Cmathrm%7BHz%7D) in modo da
     generare interrupt.
 
 - Inizializzazione dei parametri della pallina.
     I valori di inizializzazione sono i seguenti:
-    - \f$ v_{0} = 0 \f$
-    - \f$ s = 0 \f$
-    - \f$ colore = bianco \f$
-    - \f$ t_\mathrm{r} = \f$ `<ora attuale>`
+    - ![v_{0} = 0](https://latex.codecogs.com/png.latex?%5Cinline%20v_%7B0%7D%20%3D%200)
+    - ![s = 0](https://latex.codecogs.com/png.latex?%5Cinline%20s%20%3D%200)
+    - ![\mathrm{colore} = \mathrm{bianco}](https://latex.codecogs.com/png.latex?%5Cinline%20%5Cmathrm%7Bcolore%7D%20%3D%20%5Cmathrm%7Bbianco%7D)
+    - ![t_\mathrm{r} =](https://latex.codecogs.com/png.latex?%5Cinline%20t_%5Cmathrm%7Br%7D%20%3D) `<ora attuale>`
 
 - Attivazione dell'interrupt periodico.
 
@@ -136,13 +135,12 @@ di posizione e velocità.
 ### Semplificazioni
 
 Per semplificare i calcoli l'accelerazione di gravità è approssimata a:
-  \f[
-  g_{n} = 10\,\mathrm{m \cdot s^{-2}} \quad \quad (5)
-  \f]
+
+  ![g_{n} = 10\,\mathrm{m \cdot s^{-2}} \quad \quad (5)](https://latex.codecogs.com/png.latex?g_%7Bn%7D%20%3D%2010%5C%2C%5Cmathrm%7Bm%20%5Ccdot%20s%5E%7B-2%7D%7D%20%5Cquad%20%5Cquad%20%285%29)
 
 Per evitare arrotondamenti eccessivi nei calcoli i tempi sono espressi in
 **millisecondi** (ms), le distanze in **micrometri** (µm) e
-l'accelerazione di gravità in \f$ \mu m \cdot ms^{-2} \f$.
+l'accelerazione di gravità in ![\mu m \cdot ms^{-2}](https://latex.codecogs.com/png.latex?%5Cinline%20%5Cmu%20m%20%5Ccdot%20ms%5E%7B-2%7D).
 
 
 ### Visualizzazione
@@ -158,9 +156,9 @@ corrente, calcolata come:
 
 ### Termine
 
-La simulazione termina quando la pallina è ferma ( \f$ v < v_{\mathrm{min}} \f$ ).
+La simulazione termina quando la pallina è ferma ( ![v < v_{\mathrm{min}}](https://latex.codecogs.com/png.latex?%5Cinline%20v%20%3C%20v_%7B%5Cmathrm%7Bmin%7D%7D) ).
 La velocità minima della pallina, sotto la quale è considerata ferma è fissata
-in \f$ 500\,\mathrm{mm \cdot s^{-1}} \f$ .
+in ![500\,\mathrm{mm \cdot s^{-1}}](https://latex.codecogs.com/png.latex?%5Cinline%20500%5C%2C%5Cmathrm%7Bmm%20%5Ccdot%20s%5E%7B-1%7D%7D).
 
 Dopo aver cambiato il colore della palla la simulazione riparte dalle
 condizioni iniziali.
